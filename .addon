@@ -1,9 +1,9 @@
 {
   "Title": "Floating Text",
   "Type": "library",
-  "Org": "local",
+  "Org": "facepunch",
   "Ident": "floating_text",
-  "Tags": "utility ui damagenumbers",
+  "Tags": "utility ui damagenumbers library",
   "Schema": 1,
   "HasAssets": false,
   "AssetsPath": "",
@@ -18,6 +18,6 @@
     "Summary": "Easily create damage numbers or other floating text",
     "Description": "",
     "Public": true,
-    "ReplaceTags": "damagenumbers ui cool"
+    "ReplaceTags": "damagenumbers ui cool library"
   }
 }
