@@ -39,3 +39,17 @@ Game.RootPanel.Children.OfType<FloatingText>()?.FirstOrDefault()?.Create( cl.Paw
 	.WithMotion( Vector2.Up, Game.Random.Next(50, 100), Game.Random.NextSingle() * .5f, Game.Random.Next(0, 10) )
 	.WithScale( 0, 1.5f, 0.5f );
 ```
+
+## Styling
+
+You can style floating text color, shadow, or whatever, just by updating your stylesheet.  Use the `FloatingText` and `FloatingTextLabel` selectors:
+
+```scss
+FloatingText {
+    label {
+        color: red;
+        font-weight: heavy;
+        text-stroke: 4px black;
+    }
+}
+```
