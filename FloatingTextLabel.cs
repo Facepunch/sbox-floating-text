@@ -6,14 +6,13 @@ using System;
 public class FloatingTextLabel : Panel
 {
 
-    public Vector3 WorldPosition { get; set; }
-
     Label label;
     int textSize = 15;
     float lifespan = 1f;
     float fadeInTime = 0f;
     float fadeOutTime = 0f;
     TimeSince timeSinceCreated = 0;
+    Vector3 worldPosition;
 
     Vector2 animationOffset;
     Vector2 animationDirection;
@@ -25,6 +24,12 @@ public class FloatingTextLabel : Panel
     float middleScale = 1.0f;
     float endScale = 1.0f;
 
+    public FloatingTextLabel()
+    {
+        Parent = FloatingText.Instance;
+        Style.Position = PositionMode.Absolute;
+    }
+
     public override void Tick()
     {
         base.Tick();
@@ -35,12 +40,12 @@ public class FloatingTextLabel : Panel
             return;
         }
 
-        animationOffset += animationDirection * animationSpeed * Time.Delta;
+        animationOffset += -animationDirection * animationSpeed * Time.Delta;
 
         if (MathF.Abs(animationCurveAmplitude) > float.Epsilon)
         {
-            float curveValue = animationCurveAmplitude * MathF.Sin(timeSinceCreated * animationCurveFrequency);
-            Vector2 curveDirection = new Vector2(-animationDirection.y, animationDirection.x);
+            var curveValue = animationCurveAmplitude * MathF.Sin(timeSinceCreated * animationCurveFrequency);
+            var curveDirection = new Vector2(animationDirection.y, animationDirection.x);
             animationOffset += curveDirection * curveValue;
         }
 
@@ -59,7 +64,7 @@ public class FloatingTextLabel : Panel
 
         Style.FontSize = textSize * scale;
 
-        var screenpos = WorldPosition.ToScreen();
+        var screenpos = worldPosition.ToScreen();
         screenpos.x *= Screen.Width * ScaleFromScreen;
         screenpos.y *= Screen.Height * ScaleFromScreen;
         screenpos += (Vector3)animationOffset;
@@ -109,7 +114,7 @@ public class FloatingTextLabel : Panel
 
     public FloatingTextLabel WithMotion(Vector2 direction, float speed = 100.0f, float curveAmplitude = 0.15f, float curveFrequency = 4.0f)
     {
-        animationDirection = direction.WithY( -direction.y );
+        animationDirection = direction.Normal;
         animationSpeed = speed;
         animationCurveAmplitude = curveAmplitude;
         animationCurveFrequency = curveFrequency;
@@ -127,6 +132,12 @@ public class FloatingTextLabel : Panel
     public FloatingTextLabel WithClass(string @class)
     {
         AddClass(@class);
+        return this;
+    }
+
+    public FloatingTextLabel WithPosition(Vector3 worldPosition)
+    {
+        this.worldPosition = worldPosition;
         return this;
     }
 
