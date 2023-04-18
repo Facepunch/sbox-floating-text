@@ -124,4 +124,10 @@ public class FloatingTextLabel : Panel
         return this;
     }
 
+    public FloatingTextLabel WithClass(string @class)
+    {
+        AddClass(@class);
+        return this;
+    }
+
 }
