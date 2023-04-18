@@ -1,0 +1,23 @@
+{
+  "Title": "Floating Text",
+  "Type": "library",
+  "Org": "local",
+  "Ident": "floating_text",
+  "Tags": "utility ui damagenumbers",
+  "Schema": 1,
+  "HasAssets": false,
+  "AssetsPath": "",
+  "ResourcePaths": null,
+  "HasCode": true,
+  "CodePath": ".",
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Metadata": {
+    "ProjectTemplate": null,
+    "CsProjName": "",
+    "Summary": "Easily create damage numbers or other floating text",
+    "Description": "",
+    "Public": true,
+    "ReplaceTags": "damagenumbers ui cool"
+  }
+}
