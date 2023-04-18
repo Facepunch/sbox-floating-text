@@ -3,8 +3,6 @@ using Sandbox;
 using Sandbox.UI;
 using System;
 
-namespace Jake;
-
 public class FloatingTextLabel : Panel
 {
 

@@ -1,8 +1,6 @@
 
 using Sandbox.UI;
 
-namespace Jake;
-
 [StyleSheet("FloatingText.scss")]
 public class FloatingText : Panel
 {
