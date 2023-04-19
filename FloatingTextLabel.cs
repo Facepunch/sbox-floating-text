@@ -80,7 +80,7 @@ public class FloatingTextLabel : Panel
 
         if( timeSinceCreated > lifespan - fadeOutTime )
         {
-            var a = ( lifespan - timeSinceCreated ) / fadeInTime;
+            var a = ( lifespan - timeSinceCreated ) / fadeOutTime;
             Style.Opacity = a;
         }
     }
